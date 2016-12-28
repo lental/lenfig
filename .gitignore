@@ -1,0 +1,3 @@
+# The actual .gitignore for lenfig
+
+.vim/tmp/*

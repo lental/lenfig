@@ -1,0 +1,71 @@
+# on laptop, ctrl [ and ] will adjust to left and right of screen. ctrl + ' will fullscreen
+# on keybard, ctrl + numpad will adjust to various parts of the screen
+
+
+
+# Slate identifies montiors by resolutions. these probably have to chagne if you have different monitors
+alias mon-laptop      1680x1050
+alias mon-thunderbolt 2560x1440
+
+#alias 1-chat  move screenOriginX;screenOriginY                              screenSizeX/9;screenSizeY       ${mon-laptop}
+#alias 1-main  move screenOriginX+screenSizeX/9;screenOriginY                screenSizeX/9;screenSizeY       ${mon-laptop}
+alias 1-left  move screenOriginX;screenOriginY                               2*screenSizeX/5;screenSizeY     ${mon-laptop}
+alias 1-right move screenOriginX+2*screenSizeX/5;screenOriginY               3*screenSizeX/5;screenSizeY     ${mon-laptop}
+alias 2-bot   move screenOriginX;screenOriginY+screenSizeY/2                 screenSizeX;screenSizeY/2       ${mon-thunderbolt}
+alias 2-bot-l move screenOriginX;screenOriginY+screenSizeY/2                 screenSizeX/3;screenSizeY/2     ${mon-thunderbolt}
+alias 2-bot-m move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2   screenSizeX/3;screenSizeY/2     ${mon-thunderbolt}
+alias 2-bot-r move screenOriginX+2*screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2     ${mon-thunderbolt}
+alias 2-mid   move screenOriginX+screenSizeX/8;screenOriginY+screenSizeY/8   3*screenSizeX/4;3*screenSizeY/4 ${mon-thunderbolt}
+alias 2-top   move screenOriginX;screenOriginY                               screenSizeX;screenSizeY/2       ${mon-thunderbolt}
+alias 2-top-l move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY/2     ${mon-thunderbolt}
+alias 2-top-m move screenOriginX+screenSizeX/6;screenOriginY                 2*screenSizeX/3;screenSizeY/2   ${mon-thunderbolt}
+alias 2-top-r move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY/2     ${mon-thunderbolt}
+alias 2-left  move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY       ${mon-thunderbolt}
+alias 2-right move screenOriginX+screenSizeX/2;screenOriginY                 screenSizeX/2;screenSizeY       ${mon-thunderbolt}
+#alias 3-l-bot move screenOriginX;screenOriginY+screenSizeY/2                screenSizeX/2;screenSizeY/2     ${mon-hp22inch}
+#alias 3-l-top move screenOriginX;screenOriginY                              screenSizeX/2;screenSizeY/2     ${mon-hp22inch}
+#alias 3-right move screenOriginX+screenSizeX/2;screenOriginY                screenSizeX/2;screenSizeY       ${mon-hp22inch}
+
+alias a-full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Resize Bindings
+bind right:shift;ctrl;cmd  push right bar-resize:screenSizeX/2 
+bind left:shift;ctrl;cmd   push left bar-resize:screenSizeX/2
+bind up:shift;ctrl;cmd     move windowTopLeftX;0 screenSizeX/2;screenSizeY/2 
+bind down:shift;ctrl;cmd   move windowTopLeftX;screenSizeY/2 screenSizeX/2;screenSizeY/2
+#bind down:shift;ctrl;cmd  move screenSizeX/2 +0 bottom-left
+
+# Push Bindings
+bind right:ctrl;cmd  push right bar-resize:screenSizeX/3
+bind left:ctrl;cmd   push left  bar-resize:screenSizeX/3
+bind up:ctrl;cmd     push up    bar-resize:screenSizeY/2
+bind down:ctrl;cmd   push down  bar-resize:screenSizeY/2
+
+# Throw Bindings
+bind 1:ctrl;alt         throw 0 resize
+bind 2:ctrl;alt         throw 1 resize
+bind 3:ctrl;alt         throw 2 resize
+
+bind [:ctrl     ${1-left}
+bind pad0:ctrl  ${1-left}
+bind pad.:ctrl  ${1-right}
+bind ]:ctrl     ${1-right}
+bind pad1:ctrl  ${2-bot-l}
+bind pad2:ctrl  ${2-bot-m}
+bind pad3:ctrl  ${2-bot-r}
+bind pad4:ctrl  ${2-left}
+bind pad5:ctrl  ${2-mid}
+bind pad6:ctrl  ${2-right}
+bind pad7:ctrl  ${2-top-l}
+bind pad8:ctrl  ${2-top-m}
+bind pad9:ctrl  ${2-top-r}
+bind pad=:ctrl  ${2-top}
+bind pad/:ctrl  ${2-bot}
+bind pad+:ctrl  ${a-full}
+bind ':ctrl     ${a-full}
+#bind pad*:ctrl ${3-l-bot}
+#bind pad-:ctrl ${3-l-top}
