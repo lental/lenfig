@@ -10,16 +10,33 @@ alias la='ls -A'
 alias l="ls -la"
 #alias l='ls -CF'
 
+# common folders
 alias cdo='cd ~/Downloads'
-alias cw='cd ~/web'
+alias cde='cd ~/Desktop'
+alias cw='cd ~/web' # I symlink Apache's web/documents folder to here
 
 # Personal repo aliases
-alias cst='cd ~/repos/streamagatchi'
-alias ctr='cd ~/repos/truckrush'
-alias coff='cd ~/repos/office-mapper'
+alias cre='cd $PERSONAL_REPO_PATH/'
+alias cst='cd $PERSONAL_REPO_PATH/streamagatchi'
+alias ctr='cd $PERSONAL_REPO_PATH/truckrush'
+alias coff='cd $PERSONAL_REPO_PATH/office-mapper'
 
+# git shortcuts
 alias gp='git pull'
 alias gs='git status'
+
+# Open the browser for github urls.
+# This one works for git.corp.ooyala.com, and github.com
+ghe() {
+  originUrl=`git config --get remote.origin.url`
+  echo $originUrl
+  if [[ $originUrl == *"git.corp"* ]]
+  then
+    open $(git config --get remote.origin.url | sed "s#.*/\(.*\)/\(.*\)\.git#https://git.corp.ooyala.com/projects/\1/repos/\2"#)
+  else
+    open http://$(git config --get remote.origin.url | tr : /)    
+  fi
+}
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -42,16 +59,3 @@ b64() {
 # simple file finder
 # usage: `f *nuplayer*`
 alias f='find . -name'
-
-# Open the browser for github urls.
-# This one works for git.corp.ooyala.com, and github.com
-ghe() {
-  originUrl=`git config --get remote.origin.url`
-  echo $originUrl
-  if [[ $originUrl == *"git.corp"* ]]
-  then
-    open $(git config --get remote.origin.url | sed "s#.*/\(.*\)/\(.*\)\.git#https://git.corp.ooyala.com/projects/\1/repos/\2"#)
-  else
-    open http://$(git config --get remote.origin.url | tr : /)    
-  fi
-}
