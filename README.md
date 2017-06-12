@@ -36,3 +36,29 @@ Example (shell commands):
 	ln -s $PERSONAL_REPO_PATH/lenfig/.slate ~/
 	ln -s $PERSONAL_REPO_PATH/lenfig/.gitignore_global ~/
 
+# Sublime Text Command Line Installation
+
+Download Sublime here (https://www.sublimetext.com/) then symlink the command line tool somewhere nice
+
+Example (shell commands):
+
+	ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+
+# VIM installation
+
+Example (shell commands):
+
+	mkdir -p ~/.vim/tmp/swap
+	mkdir -p ~/.vim/tmp/backup
+	mkdir -p ~/.vim/tmp/undo
+
+# All commands combined
+
+	ln -s $PERSONAL_REPO_PATH/lenfig/.vimrc ~/
+	ln -s $PERSONAL_REPO_PATH/lenfig/.vim ~/
+	ln -s $PERSONAL_REPO_PATH/lenfig/.slate ~/
+	ln -s $PERSONAL_REPO_PATH/lenfig/.gitignore_global ~/
+	ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+	mkdir -p ~/.vim/tmp/swap
+	mkdir -p ~/.vim/tmp/backup
+	mkdir -p ~/.vim/tmp/undo

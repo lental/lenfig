@@ -4,6 +4,10 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Add local path for some local commands
+export PATH=$PATH:~/bin
+
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
