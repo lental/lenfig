@@ -140,7 +140,7 @@ hs.hotkey.bind(activator, "pad.", function () H2(laptopScreen) end)
 -- When we're working only on the laptop, have some minimal bindings
 hs.hotkey.bind(activator, "[", function () H1(laptopScreen) end)
 hs.hotkey.bind(activator, "]", function () H2(laptopScreen) end)
-
+hs.hotkey.bind(activator, "'", FCurrent)
 
 
 
