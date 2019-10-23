@@ -58,6 +58,7 @@ Example (shell commands):
 	ln -s $PERSONAL_REPO_PATH/lenfig/.vim ~/
 	ln -s $PERSONAL_REPO_PATH/lenfig/.slate ~/
 	ln -s $PERSONAL_REPO_PATH/lenfig/.gitignore_global ~/
+  ln -s $PERSONAL_REPO_PATH/lenfig/.hammerspoon/init.lua ~/.hammerspoon/
 	ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 	mkdir -p ~/.vim/tmp/swap
 	mkdir -p ~/.vim/tmp/backup
